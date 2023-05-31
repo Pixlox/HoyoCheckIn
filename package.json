@@ -1,0 +1,28 @@
+{
+  "name": "hoyocheckin",
+  "version": "1.0.0",
+  "description": "A simple package for HoYoLAB check-ins",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/Pixlox/HoyoCheckIn"
+  },
+  "keywords": [
+    "hoyo",
+    "hoyoverse",
+    "mihoyo",
+    "cognosphere",
+    "check",
+    "in",
+    "genshin",
+    "starrail",
+    "star",
+    "rail",
+    "honkai"
+  ],
+  "author": "Pixlox",
+  "license": "MIT"
+}

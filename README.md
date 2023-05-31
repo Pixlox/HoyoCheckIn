@@ -1,15 +1,27 @@
 # HoyoCheckIn
-A simple npm package for HoyoLAB check-ins.
+
+A simple, fast and functional npm package for HoYoLAB check-ins in your project.
+
+[![Commits](https://img.shields.io/github/last-commit/Pixlox/hoyocheckin?style=for-the-badge)](https://img.shields.io/github/last-commit/Pixlox/hoyocheckin?style=for-the-badge)
+[![License](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)
 ---
 ## Key Features
 - Supports Honkai: Star Rail, Genshin Impact and Honkai Impact 3rd.
 - Supports custom user agents, and defaults to a human-browser one if not provided.
 - Small, efficient and functional.
 
-## Usage
-> NOTE: While HoyoCheckIn aims to be undetectable, and there is no evidence that using Artificial-based check-ins are bannable, you still agree to use this at your own risk. I am not responsible for any reprocussions that occur from using this software.
-
+## Install
+Installing is easy, and is done via NPM. 
 ```
+npm install hoyocheckin
+```
+
+## Usage
+> IMPORTANT: While HoyoCheckIn aims to be undetectable, and there is no evidence that Artificial check-ins are bannable, you still agree to use this at your own risk. I am not responsible for any negative reprocussions that occur from using this software.
+
+The most simple way to check-in is to not specify an User-Agent at all. It will automatically use a human-browser User-Agent.
+
+```js
 const { checkIn, HoyoGame } = require('hoyocheckin');
 
 const cookie = {
@@ -27,15 +39,18 @@ try {
 }
 ```
 
-If you would like to use a custom User-Agent, you may by simply inputting it in the CheckIn function.
+However, if you would still like to use a custom User-Agent, you may do so by simply inputting it in the function.
 
-```
-const userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36";
+```js
+const userAgent = "Example User-Agent";
 
 const checkInResult = await checkIn(cookie, game, userAgent);
 ```
 
 
+## Contributing
+
+If you have any features or fixes you'd like to contribute, go for it! Any time spent is very, very appreciated.
 
 
 
