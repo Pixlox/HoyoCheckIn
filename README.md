@@ -1,7 +1,7 @@
 # HoyoCheckIn
 A simple npm package for HoyoLAB check-ins.
-https://img.shields.io/node/v-lts/hoyocheckin?style=for-the-badge
-https://img.shields.io/bundlephobia/minzip/hoyocheckin?label=bundle%20size&style=for-the-badge
+[![Node](https://img.shields.io/node/v-lts/hoyocheckin?style=for-the-badge)
+[![Size](https://img.shields.io/bundlephobia/minzip/hoyocheckin?label=bundle%20size&style=for-the-badge)
 
 ---
 ## Key Features
@@ -12,7 +12,8 @@ https://img.shields.io/bundlephobia/minzip/hoyocheckin?label=bundle%20size&style
 ## Usage
 > NOTE: While HoyoCheckIn aims to be undetectable, and there is no evidence that using Artificial-based check-ins are bannable, you still agree to use this at your own risk. I am not responsible for any reprocussions that occur from using this software.
 
-```const { checkIn, HoyoGame } = require('hoyocheckin');
+```
+const { checkIn, HoyoGame } = require('hoyocheckin');
 
 const cookie = {
   ltoken: 'YOUR_LTOKEN_VALUE',
