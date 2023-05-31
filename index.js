@@ -1,5 +1,6 @@
-const { checkIn } = require('./check-in');
+const { checkIn, HoyoGame } = require('./check-in');
 
 module.exports = {
-  checkIn
+  checkIn,
+  HoyoGame
 };
