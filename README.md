@@ -47,6 +47,22 @@ const userAgent = "Example User-Agent";
 const checkInResult = await checkIn(cookie, game, userAgent);
 ```
 
+You can also find out if the user has already checked in, and respond to them accordingly.
+
+```js
+const checkInResult = await checkIn(cookie, game);
+if (checkInResult.alreadyCheckedIn) {
+  console.log(checkInResult.message);
+}
+```
+
+HoYoLAB returns a custom message if check-in is already done, so, if you wish you can simply return that output to the user, as I have above.
+
+> Just as an FYI, for each game they are:
+>- You've already checked in today, Trailblazer~
+>- Traveler, you've already checked in today~
+>- You have already signed in, Captain~
+
 
 ## How do I get my token?
 

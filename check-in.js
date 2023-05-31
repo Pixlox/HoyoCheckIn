@@ -8,7 +8,7 @@ const HoyoGame = {
 
 const checkIn = async (cookie, game, userAgent = '') => {
   if (!(game in HoyoGame)) {
-    throw new Error('Invalid game');
+    throw new Error('Invalid check-in game. Please choose from StarRail, Genshin and HKImpact.');
   }
 
   let url = '';
@@ -21,7 +21,7 @@ const checkIn = async (cookie, game, userAgent = '') => {
   }
 
   const headers = {
-    Cookie: `ltoken=${cookie.ltoken}; ltuid=${cookie.ltuid}`,
+    Cookie: `ltoken=${cookie.ltoken}; ltuid=${cookie.ltuid};`,
     'User-Agent': userAgent || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
     Origin: 'https://act.hoyolab.com',
     Connection: 'keep-alive',
@@ -41,10 +41,20 @@ const checkIn = async (cookie, game, userAgent = '') => {
     const { data, message, retcode } = responseData;
 
     if (retcode === -5003) {
-      throw new Error(message);
+      return {
+        data,
+        message,
+        retcode,
+        alreadyCheckedIn: true
+      };
     }
 
-    return data;
+    return {
+      data,
+      message,
+      retcode,
+      alreadyCheckedIn: false
+    };
   } catch (error) {
     throw new Error(`Check-in request failed: ${error.message}`);
   }
@@ -52,5 +62,5 @@ const checkIn = async (cookie, game, userAgent = '') => {
 
 module.exports = {
   checkIn,
-  HoyoGame 
+  HoyoGame
 };
