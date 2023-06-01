@@ -33,7 +33,7 @@ const game = HoyoGame.StarRail; // You can replace this with Genshin or HKImpact
 
 try {
     const checkInResult = await checkIn(cookie, game);
-    console.log('Check-in successful:', checkInResult);
+    console.log('Check-in successful:', checkInResult.message);
   } catch (error) {
     console.error('Check-in failed:', error.message);
 }
