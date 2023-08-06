@@ -1,6 +1,6 @@
 # HoyoCheckIn
 
-A simple, fast and functional npm package for HoYoLAB check-ins in your project.
+A lightweight, fast and functional wrapper for HoYoLAB check-ins in your project.
 
 [![Commits](https://img.shields.io/github/last-commit/Pixlox/hoyocheckin?style=for-the-badge)](https://img.shields.io/github/last-commit/Pixlox/hoyocheckin?style=for-the-badge)
 [![License](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)
@@ -8,7 +8,7 @@ A simple, fast and functional npm package for HoYoLAB check-ins in your project.
 ## Key Features
 - Supports Honkai: Star Rail, Genshin Impact and Honkai Impact 3rd.
 - Supports custom user agents, and defaults to a human-browser one if not provided.
-- Small, efficient and functional.
+- Small (7KB), efficient and functional.
 
 ## Install
 Installing is done via NPM. 
@@ -19,7 +19,7 @@ npm install hoyocheckin
 ## Usage
 > NOTE: Before continuing, please grab your HoYoLAB token. Specifically, ```ltoken``` and ```ltuid```. If you do not have these already, there is a script to get them below.
 
-The most simple way to check-in is to not specify an User-Agent at all. It will automatically use a human-browser User-Agent.
+The most simple way to check-in is to not specify an User-Agent at all. It will automatically use a regular browser's User-Agent.
 
 ```js
 const { checkIn, HoyoGame } = require('hoyocheckin');
