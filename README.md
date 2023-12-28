@@ -1,6 +1,6 @@
 # HoyoCheckIn
 
-A simple, fast and functional npm package for HoYoLAB check-ins in your project.
+A lightweight, fast and functional wrapper for HoYoLAB check-ins in your project.
 
 [![Commits](https://img.shields.io/github/last-commit/Pixlox/hoyocheckin?style=for-the-badge)](https://img.shields.io/github/last-commit/Pixlox/hoyocheckin?style=for-the-badge)
 [![License](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)
@@ -8,7 +8,7 @@ A simple, fast and functional npm package for HoYoLAB check-ins in your project.
 ## Key Features
 - Supports Honkai: Star Rail, Genshin Impact and Honkai Impact 3rd.
 - Supports custom user agents, and defaults to a human-browser one if not provided.
-- Small, efficient and functional.
+- Small (7KB), efficient and functional.
 
 ## Install
 Installing is done via NPM. 
@@ -20,9 +20,13 @@ npm install hoyocheckin
 > [!NOTE] 
 > Before continuing, please grab your HoYoLAB token. Specifically, ```ltoken``` and ```ltuid```. If you do not have these already, there is a script to get them below. Please also check if your token is ```v2``` or not, as well.
 
+<<<<<<< HEAD
 The most simple way to check-in is to not specify an User-Agent at all. It will automatically use a browsers User-Agent.
 
 Please, also check if your token is ```v2``` or not. If it is, you will need to specify that in the ```checkIn()``` function. If you do not provide a token version, it will default to ```v1```.
+=======
+The most simple way to check-in is to not specify an User-Agent at all. It will automatically use a regular browser's User-Agent.
+>>>>>>> f2ad1f8f949e6ea8822a19a8badbbc630b9e9ae6
 
 ```js
 const { checkIn, HoyoGame } = require('hoyocheckin');
@@ -35,8 +39,13 @@ const cookie = {
 const game = HoyoGame.StarRail; // You can replace this with Genshin or HKImpact, for those respective games.
 
 try {
+<<<<<<< HEAD
     const checkInResult = await checkIn(cookie, game, false); // v2, or not.
     console.log('Check-in successful:', checkInResult);
+=======
+    const checkInResult = await checkIn(cookie, game);
+    console.log('Check-in successful:', checkInResult.message);
+>>>>>>> f2ad1f8f949e6ea8822a19a8badbbc630b9e9ae6
   } catch (error) {
     console.error('Check-in failed:', error.message);
 }
