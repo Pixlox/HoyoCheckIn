@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2b75a0ac-3de1-442d-bfed-c2934cd79221" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/platform/common/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check-in.js" beforeDir="false" afterPath="$PROJECT_DIR$/check-in.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/browser/axios.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/browser/axios.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/browser/axios.cjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/browser/axios.cjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/node/axios.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/node/axios.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/node/axios.cjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/node/axios.cjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/index.d.cts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/index.d.cts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/adapters/adapters.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/adapters/adapters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/adapters/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/adapters/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/adapters/xhr.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/adapters/xhr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/Axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/Axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/AxiosHeaders.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/AxiosHeaders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/mergeConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/mergeConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/defaults/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/defaults/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/env/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/env/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/combineURLs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/combineURLs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/cookies.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/cookies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/isURLSameOrigin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/isURLSameOrigin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/platform/browser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/platform/browser/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/platform/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/platform/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/axios/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/follow-redirects/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/follow-redirects/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/follow-redirects/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/follow-redirects/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="u9zuv3ef" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2aAsRkjMPATwnE0eHMV6ZWrXRKm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/omarsmac/Developer/Repos/JS/HoyoCheckIn",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ruby.rails.projectView.checked": "true",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b75a0ac-3de1-442d-bfed-c2934cd79221" name="Changes" comment="" />
+      <created>1686793702484</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686793702484</updated>
+      <workItem from="1703772713226" duration="3105000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -6,9 +6,9 @@ const HoyoGame = {
   HKImpact: 'HKImpact'
 };
 
-const checkIn = async (cookie, game, userAgent = '') => {
+const checkIn = async (cookie, game, v2 = false, userAgent = '') => {
   if (!(game in HoyoGame)) {
-    throw new Error('Invalid check-in game. Please choose from StarRail, Genshin and HKImpact.');
+    throw new Error('Invalid check-in game. Please choose from StarRail, Genshin, and HKImpact.');
   }
 
   let url = '';
@@ -20,8 +20,9 @@ const checkIn = async (cookie, game, userAgent = '') => {
     url = 'https://sg-public-api.hoyolab.com/event/mani/sign?lang=en-us&act_id=e202110291205111';
   }
 
+  const cookiePrefix = v2 ? '_v2' : '';
   const headers = {
-    Cookie: `ltoken=${cookie.ltoken}; ltuid=${cookie.ltuid};`,
+    Cookie: `ltoken${cookiePrefix}=${cookie.ltoken}; ltuid${cookiePrefix}=${cookie.ltuid};`,
     'User-Agent': userAgent || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
     Origin: 'https://act.hoyolab.com',
     Connection: 'keep-alive',
@@ -31,8 +32,8 @@ const checkIn = async (cookie, game, userAgent = '') => {
   const axiosConfig = {
     headers,
     timeout: 10000,
-    retries: 3, 
-    retryDelay: (retryCount) => retryCount * 1000 
+    retries: 3,
+    retryDelay: (retryCount) => retryCount * 1000
   };
 
   try {

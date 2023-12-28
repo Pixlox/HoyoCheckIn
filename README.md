@@ -17,9 +17,12 @@ npm install hoyocheckin
 ```
 
 ## Usage
-> NOTE: Before continuing, please grab your HoYoLAB token. Specifically, ```ltoken``` and ```ltuid```. If you do not have these already, there is a script to get them below.
+> [!NOTE] 
+> Before continuing, please grab your HoYoLAB token. Specifically, ```ltoken``` and ```ltuid```. If you do not have these already, there is a script to get them below. Please also check if your token is ```v2``` or not, as well.
 
-The most simple way to check-in is to not specify an User-Agent at all. It will automatically use a human-browser User-Agent.
+The most simple way to check-in is to not specify an User-Agent at all. It will automatically use a browsers User-Agent.
+
+Please, also check if your token is ```v2``` or not. If it is, you will need to specify that in the ```checkIn()``` function. If you do not provide a token version, it will default to ```v1```.
 
 ```js
 const { checkIn, HoyoGame } = require('hoyocheckin');
@@ -32,7 +35,7 @@ const cookie = {
 const game = HoyoGame.StarRail; // You can replace this with Genshin or HKImpact, for those respective games.
 
 try {
-    const checkInResult = await checkIn(cookie, game);
+    const checkInResult = await checkIn(cookie, game, false); // v2, or not.
     console.log('Check-in successful:', checkInResult);
   } catch (error) {
     console.error('Check-in failed:', error.message);
@@ -44,13 +47,13 @@ However, if you would still like to use a custom User-Agent, you may do so by si
 ```js
 const userAgent = "Example User-Agent";
 
-const checkInResult = await checkIn(cookie, game, userAgent);
+const checkInResult = await checkIn(cookie, game, false, userAgent);
 ```
 
 You can also find out if the user has already checked in, and respond to them accordingly.
 
 ```js
-const checkInResult = await checkIn(cookie, game);
+const checkInResult = await checkIn(cookie, game, false);
 if (checkInResult.alreadyCheckedIn) {
   console.log(checkInResult.message);
 }
@@ -64,9 +67,12 @@ HoYoLAB returns a custom message if check-in is already done, so, if you wish yo
 >- You have already signed in, Captain~
 
 
-## How do I get my token?
+## How do I get my token (v1)?
 
-I have created a script for you to get your token from HoYoLAB. Simply go to HoYoLAB, and hit Option + ⌘ + J on macOS, or Shift + CTRL + J on Windows / Linux.
+> [!WARNING] 
+> This method no longer functions for ```v2``` HoYoLAB tokens. However, some users still have ```v1``` tokens, so try this first. A method for ```v2``` tokens is below.
+
+Here's a script for you to get your token from HoYoLAB. Simply go to HoYoLAB, and hit Option + ⌘ + J on macOS, or Shift + CTRL + J.
 
 After that, you can copy this script, and punch it into the console. It should return your ```ltuid``` and your ```ltoken```. Which then, you can use in HoyoCheckIn, or any other programs that utilise it.
 
@@ -93,6 +99,19 @@ if (ltoken && ltuid) {
   alert('Please logout and log back in before trying again. The cookie is currently expired or invalid!');
 }
 ```
+
+
+## How do I get my token (v2)?
+
+- Go to HoYoLAB, and navigate to your profile page.
+- Open the developer console using Option + ⌘ + J on macOS, or Shift + CTRL + J, and go to the Network tab. 
+- Click on the 'Preserve Log' button, then refresh the page.
+- Click on the getGameRecordCard request where the method is ```GET``` (It should be named ```getGameRecordCard``` with your HoYoLAB UID).
+- Go to the "Cookies" tab. 
+- Copy the ```ltoken_v2``` and ```ltuid_v2``` cookie value.
+
+![Demo Screenshot](demo_screenshot.jpg?raw=true "I do not have a v2 token, so please look for ltoken_v2 and ltuid_v2 in your cookies instead.")
+
 
 ## Contributing
 
