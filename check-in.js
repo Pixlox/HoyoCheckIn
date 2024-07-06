@@ -3,12 +3,13 @@ const axios = require('axios');
 const HoyoGame = {
   StarRail: 'StarRail',
   Genshin: 'Genshin',
-  HKImpact: 'HKImpact'
+  HKImpact: 'HKImpact',
+  Zenless: 'Zenless'
 };
 
 const checkIn = async (cookie, game, v2 = false, userAgent = '') => {
   if (!(game in HoyoGame)) {
-    throw new Error('Invalid check-in game. Please choose from StarRail, Genshin, and HKImpact.');
+    throw new Error('Invalid check-in game. Please choose from StarRail, Genshin, HKImpact, and Zenless.');
   }
 
   let url = '';
@@ -18,11 +19,13 @@ const checkIn = async (cookie, game, v2 = false, userAgent = '') => {
     url = 'https://sg-hk4e-api.hoyolab.com/event/sol/sign?lang=en-us&act_id=e202102251931481';
   } else if (game === HoyoGame.HKImpact) {
     url = 'https://sg-public-api.hoyolab.com/event/mani/sign?lang=en-us&act_id=e202110291205111';
+  } else if (game === HoyoGame.Zenless) {
+    url = 'https://sg-act-nap-api.hoyolab.com/event/luna/zzz/os/sign?lang=en-us&act_id=e202406031448091';
   }
 
   const cookiePrefix = v2 ? '_v2' : '';
   const headers = {
-    Cookie: `ltoken${cookiePrefix}=${cookie.ltoken}; ltuid${cookiePrefix}=${cookie.ltuid};`,
+    Cookie: `ltoken${cookiePrefix}=${cookie[`ltoken${cookiePrefix}`]}; ltuid${cookiePrefix}=${cookie[`ltuid${cookiePrefix}`]};`,
     'User-Agent': userAgent || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
     Origin: 'https://act.hoyolab.com',
     Connection: 'keep-alive',
