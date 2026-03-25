@@ -6,7 +6,11 @@ A simple, fast and functional npm package for HoYoLAB check-ins in your project.
 [![License](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)
 ---
 ## Key Features
+<<<<<<< HEAD
 - Supports Honkai: Star Rail, Genshin Impact, Honkai Impact 3rd, Zenless Zone Zero, and Tears of Themis.
+=======
+- Supports Honkai: Star Rail, Genshin Impact, Honkai Impact 3rd _and_ Tears of Themis (if anyone even plays that?)
+>>>>>>> 07c88d2b3ced8a8ed1e5c2da81c1fd3bc76453bf
 - Supports custom user agents, and defaults to a human-browser one if not provided.
 - Small, efficient and functional.
 
@@ -32,7 +36,11 @@ const { checkIn, HoyoGame } = require('hoyocheckin');
 
 const cookie = 'ltuid_v2=YOUR_LTUID; ltoken_v2=YOUR_LTOKEN;';
 
+<<<<<<< HEAD
 const game = HoyoGame.StarRail; // Genshin, HKImpact, Zenless, or TearsOfThemis
+=======
+const game = HoyoGame.StarRail; // You can replace this with Genshin, HKImpact or TearsOfThemis, for those respective games.
+>>>>>>> 07c88d2b3ced8a8ed1e5c2da81c1fd3bc76453bf
 
 try {
   const checkInResult = await checkIn(cookie, game);
