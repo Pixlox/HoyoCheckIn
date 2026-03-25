@@ -1,7 +1,7 @@
 {
   "name": "hoyocheckin",
-  "version": "1.3.0",
-  "description": "A simple package for HoYoLAB check-ins",
+  "version": "2.0.0",
+  "description": "A simple package for HoYoLAB daily check-ins. Supports Star Rail, Genshin Impact, Honkai Impact 3rd, Zenless Zone Zero, and Tears of Themis.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

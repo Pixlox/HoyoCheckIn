@@ -11,45 +11,61 @@ const HoyoGame = {
   TearsOfThemis: 'TearsOfThemis'
 };
 
+const gameConfig = {
+  StarRail: {
+    url: 'https://sg-public-api.hoyolab.com/event/luna/os/sign?lang=en-us&act_id=e202303301540311',
+    extraHeaders: {}
+  },
+  Genshin: {
+    url: 'https://sg-hk4e-api.hoyolab.com/event/sol/sign?lang=en-us&act_id=e202102251931481',
+    extraHeaders: {}
+  },
+  HKImpact: {
+    url: 'https://sg-public-api.hoyolab.com/event/mani/sign?lang=en-us&act_id=e202110291205111',
+    extraHeaders: {}
+  },
+  Zenless: {
+    url: 'https://sg-act-nap-api.hoyolab.com/event/luna/zzz/os/sign?lang=en-us&act_id=e202406031448091',
+    extraHeaders: { 'x-rpc-signgame': 'zzz' }
+  },
+  TearsOfThemis: {
+    url: 'https://sg-public-api.hoyolab.com/event/luna/os/sign?lang=en-us&act_id=e202308141137581',
+    extraHeaders: {}
+  }
+};
+
+const defaultHeaders = {
+  'Accept': 'application/json, text/plain, */*',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Connection': 'keep-alive',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+  'x-rpc-app_version': '2.34.1',
+  'x-rpc-client_type': '4',
+  'Origin': 'https://act.hoyolab.com',
+  'Referer': 'https://act.hoyolab.com/'
+};
+
 const checkIn = async (cookie, game, version = false, userAgent = '') => {
-  // For backwards compatibility, the version parameter can be a boolean or a string ('v1' or 'v2')
-  let cookiePrefix = '';
-  if (typeof version === 'boolean') {
-    cookiePrefix = version ? '_v2' : '';
-  } else if (typeof version === 'string') {
-    if (version.toLowerCase() === 'v2') {
-      cookiePrefix = '_v2';
-    } else {
-      cookiePrefix = ''; // for v1
-    }
-  }
-
   if (!(game in HoyoGame)) {
-    throw new Error('Invalid check-in game. Please choose from StarRail, Genshin, HKImpact, and Zenless.');
+    throw new Error('Invalid check-in game. Please choose from StarRail, Genshin, HKImpact, Zenless, and TearsOfThemis.');
   }
 
-  let url = '';
-  if (game === HoyoGame.StarRail) {
-    url = 'https://sg-public-api.hoyolab.com/event/luna/os/sign?lang=en-us&act_id=e202303301540311';
-  } else if (game === HoyoGame.Genshin) {
-    url = 'https://sg-hk4e-api.hoyolab.com/event/sol/sign?lang=en-us&act_id=e202102251931481';
-  } else if (game === HoyoGame.HKImpact) {
-    url = 'https://sg-public-api.hoyolab.com/event/mani/sign?lang=en-us&act_id=e202110291205111';
-  } else if (game === HoyoGame.Zenless) {
-    url = 'https://sg-public-api.hoyolab.com/event/luna/zzz/os/sign?lang=en-us&act_id=e202406031448091';
-  } else if (game === HoyoGame.TearsOfThemis) {
-    url = 'https://sg-public-api.hoyolab.com/event/luna/os/sign?lang=en-us&act_id=e202308141137581';
-  }
+  const config = gameConfig[game];
 
   const headers = {
-    // Constructs the Cookie header based on the version.
-    Cookie: `ltoken${cookiePrefix}=${cookie[`ltoken${cookiePrefix}`]}; ltuid${cookiePrefix}=${cookie[`ltuid${cookiePrefix}`]};`,
-    'User-Agent': userAgent ||
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
-    Origin: 'https://act.hoyolab.com',
-    Connection: 'keep-alive',
-    Referer: 'https://act.hoyolab.com/'
+    ...defaultHeaders,
+    ...config.extraHeaders,
+    Cookie: cookie
   };
+
+  if (userAgent) {
+    headers['User-Agent'] = userAgent;
+  }
+
+  const body = JSON.stringify({
+    lang: 'en-us',
+    act_id: new URL(config.url).searchParams.get('act_id')
+  });
 
   const axiosConfig = {
     headers,
@@ -57,7 +73,7 @@ const checkIn = async (cookie, game, version = false, userAgent = '') => {
   };
 
   try {
-    const response = await axios.post(url, null, axiosConfig);
+    const response = await axios.post(config.url, body, axiosConfig);
     const responseData = response.data;
     const { data, message, retcode } = responseData;
 

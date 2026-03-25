@@ -6,7 +6,7 @@ A simple, fast and functional npm package for HoYoLAB check-ins in your project.
 [![License](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)](https://img.shields.io/npm/l/hoyocheckin?style=for-the-badge)
 ---
 ## Key Features
-- Supports Honkai: Star Rail, Genshin Impact and Honkai Impact 3rd.
+- Supports Honkai: Star Rail, Genshin Impact, Honkai Impact 3rd, Zenless Zone Zero, and Tears of Themis.
 - Supports custom user agents, and defaults to a human-browser one if not provided.
 - Small, efficient and functional.
 
@@ -17,107 +17,62 @@ npm install hoyocheckin
 ```
 
 ## Usage
-> [!NOTE] 
-> Before continuing, please grab your HoYoLAB token. Specifically, ```ltoken``` and ```ltuid```. If you do not have these already, there is a script to get them below. Please also check if your token is ```v2``` or not, as well.
 
-The most simple way to check-in is to not specify an User-Agent at all. It will automatically use a browsers User-Agent.
+First, get your HoYoLAB cookie:
 
-Please, also check if your token is ```v2``` or not. If it is, you will need to specify that in the ```checkIn()``` function. If you do not provide a token version, it will default to ```v1```.
+1. Go to [HoYoLAB](https://www.hoyolab.com) and log in.
+2. Open DevTools (F12), go to the **Application** tab (Chrome) or **Storage** tab (Firefox).
+3. Under Cookies, find `ltoken_v2` and `ltuid_v2`.
+4. Copy the full cookie string in the format: `ltuid_v2=YOUR_LTUID; ltoken_v2=YOUR_LTOKEN;`
+
+You can also include other cookie fields like `account_mid_v2`, `account_id_v2`, and `ltmid_v2` if available.
 
 ```js
 const { checkIn, HoyoGame } = require('hoyocheckin');
 
-const cookie = {
-  ltoken: 'YOUR_LTOKEN_VALUE',
-  ltuid: 'YOUR_LTUID_VALUE'
-};
+const cookie = 'ltuid_v2=YOUR_LTUID; ltoken_v2=YOUR_LTOKEN;';
 
-const game = HoyoGame.StarRail; // You can replace this with Genshin or HKImpact, for those respective games.
+const game = HoyoGame.StarRail; // Genshin, HKImpact, Zenless, or TearsOfThemis
 
 try {
-    const checkInResult = await checkIn(cookie, game, false); // v2, or not.
-    console.log('Check-in successful:', checkInResult);
-  } catch (error) {
-    console.error('Check-in failed:', error.message);
+  const checkInResult = await checkIn(cookie, game);
+  console.log('Check-in successful:', checkInResult);
+} catch (error) {
+  console.error('Check-in failed:', error.message);
 }
 ```
 
-However, if you would still like to use a custom User-Agent, you may do so by simply inputting it in the ```CheckIn()``` function.
+If you would like to use a custom User-Agent:
 
 ```js
-const userAgent = "Example User-Agent";
-
+const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36";
 const checkInResult = await checkIn(cookie, game, false, userAgent);
 ```
 
-You can also find out if the user has already checked in, and respond to them accordingly.
+You can also check if the user has already checked in:
 
 ```js
-const checkInResult = await checkIn(cookie, game, false);
+const checkInResult = await checkIn(cookie, game);
 if (checkInResult.alreadyCheckedIn) {
   console.log(checkInResult.message);
 }
 ```
 
-HoYoLAB returns a custom message if check-in is already done, so, if you wish you can simply return that output to the user, as I have above.
+HoYoLAB returns a custom message if check-in is already done:
+- Star Rail: `You've already checked in today, Trailblazer~`
+- Genshin Impact: `Traveler, you've already checked in today~`
+- Honkai Impact 3rd: `You have already signed in, Captain~`
 
-> Just as an FYI, for each game they are:
->- You've already checked in today, Trailblazer~
->- Traveler, you've already checked in today~
->- You have already signed in, Captain~
+## Supported Games
 
-
-## How do I get my token (v1)?
-
-> [!WARNING] 
-> This method no longer functions for ```v2``` HoYoLAB tokens. However, some users still have ```v1``` tokens, so try this first. A method for ```v2``` tokens is below.
-
-Here's a script for you to get your token from HoYoLAB. Simply go to HoYoLAB, and hit Option + ⌘ + J on macOS, or Shift + CTRL + J.
-
-After that, you can copy this script, and punch it into the console. It should return your ```ltuid``` and your ```ltoken```. Which then, you can use in HoyoCheckIn, or any other programs that utilise it.
-
-```js
-var ltoken = '';
-var ltuid = '';
-
-if (document.cookie.includes('ltoken') && document.cookie.includes('ltuid')) {
-  var cookieArr = document.cookie.split(';');
-  for (var i = 0; i < cookieArr.length; i++) {
-    var cookie = cookieArr[i].trim();
-    if (cookie.startsWith('ltoken')) {
-      ltoken = 'ltoken=' + cookie.split('=')[1] + ';';
-    } else if (cookie.startsWith('ltuid')) {
-      ltuid = 'ltuid=' + cookie.split('=')[1] + ';';
-    }
-  }
-}
-
-if (ltoken && ltuid) {
-  var cookie = ltoken + ' ' + ltuid;
-  document.write(cookie);
-} else {
-  alert('Please logout and log back in before trying again. The cookie is currently expired or invalid!');
-}
-```
-
-
-## How do I get my token (v2)?
-
-- Go to HoYoLAB, and navigate to your profile page.
-- Open the developer console using Option + ⌘ + J on macOS, or Shift + CTRL + J, and go to the Network tab. 
-- Click on the 'Preserve Log' button, then refresh the page.
-- Click on the getGameRecordCard request where the method is ```GET``` (It should be named ```getGameRecordCard``` with your HoYoLAB UID).
-- Go to the "Cookies" tab. 
-- Copy the ```ltoken_v2``` and ```ltuid_v2``` cookie value.
-
-![Demo Screenshot](demo_screenshot.jpg?raw=true "I do not have a v2 token, so please look for ltoken_v2 and ltuid_v2 in your cookies instead.")
-
+| Game | Enum |
+|------|------|
+| Honkai: Star Rail | `HoyoGame.StarRail` |
+| Genshin Impact | `HoyoGame.Genshin` |
+| Honkai Impact 3rd | `HoyoGame.HKImpact` |
+| Zenless Zone Zero | `HoyoGame.Zenless` |
+| Tears of Themis | `HoyoGame.TearsOfThemis` |
 
 ## Contributing
 
 If you have any features or fixes you'd like to contribute, open a PR.
-
-
-
-
-
